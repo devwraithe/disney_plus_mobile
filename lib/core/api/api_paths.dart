@@ -8,4 +8,9 @@ class Api {
   static String get popularMovies => '$baseUrl/movie/popular$attachment';
   static String get topRatedMovies => '$baseUrl/movie/top_rated$attachment';
   static String get upcomingMovies => '$baseUrl/movie/upcoming$attachment';
+
+  static String movieInfo(String movieId) =>
+      '$baseUrl/movie/$movieId$attachment';
+  static String movieCast(String movieId) =>
+      '$baseUrl/movie/$movieId/credits$attachment';
 }

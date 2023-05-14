@@ -7,11 +7,8 @@ class AppTheme {
     scaffoldBackgroundColor: AppColorScheme.lightColorScheme.background,
     buttonTheme: AppButtonTheme.buttonTheme,
     filledButtonTheme: AppButtonTheme.filledButtonTheme,
+    iconButtonTheme: AppButtonTheme.iconButtonTheme,
     textTheme: AppTextTheme.textTheme,
-    dividerTheme: const DividerThemeData(
-      thickness: 2,
-      color: AppColors.grey,
-    ),
   );
 }
 
@@ -36,15 +33,35 @@ class AppButtonTheme {
   static final filledButtonTheme = FilledButtonThemeData(
     style: AppButtonTheme.filledButtonStyle,
   );
+  static final iconButtonTheme = IconButtonThemeData(
+    style: AppButtonTheme.iconButtonStyle,
+  );
   static final filledButtonStyle = FilledButton.styleFrom(
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
-    textStyle: AppTextTheme.textTheme.bodyMedium?.copyWith(
-      letterSpacing: 1,
-      fontWeight: FontWeight.w700,
-      color: AppColors.white,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(6),
     ),
-    backgroundColor: AppColors.black,
-    minimumSize: const Size(double.infinity, 56),
+    textStyle: AppTextTheme.textTheme.bodyMedium?.copyWith(
+      fontWeight: FontWeight.w500,
+      color: AppColors.black,
+    ),
+    backgroundColor: AppColors.white,
+    minimumSize: const Size(double.infinity, 46),
+  );
+  static final iconButtonStyle = IconButton.styleFrom(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(36),
+      side: const BorderSide(
+        color: AppColors.white,
+        width: 1.8,
+        strokeAlign: BorderSide.strokeAlignCenter,
+      ),
+    ),
+    backgroundColor: Colors.transparent,
+    foregroundColor: Colors.transparent,
+    minimumSize: const Size(40, 40),
+    maximumSize: const Size(40, 40),
+    fixedSize: const Size(40, 40),
+    elevation: 0,
   );
 }
 
@@ -81,9 +98,8 @@ class AppTextTheme {
     ),
     headlineSmall: TextStyle(
       fontSize: 24,
-      fontWeight: FontWeight.w400,
-      color: AppColors.darkBrown,
-      height: 1.4,
+      fontWeight: FontWeight.w600,
+      color: AppColors.white,
     ),
     titleLarge: TextStyle(
       fontSize: 22.78,
@@ -102,17 +118,18 @@ class AppTextTheme {
     bodyLarge: TextStyle(
       fontSize: 16,
       color: AppColors.white,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w600,
     ),
     bodyMedium: TextStyle(
       fontSize: 14,
       color: AppColors.white,
       fontWeight: FontWeight.w500,
+      fontFamily: 'Outfit',
     ),
     bodySmall: TextStyle(
-      fontSize: 10,
-      color: AppColors.lightBrown,
-      fontWeight: FontWeight.w500,
+      fontSize: 12,
+      color: AppColors.grey,
+      fontWeight: FontWeight.w400,
     ),
   );
 }
@@ -120,7 +137,7 @@ class AppTextTheme {
 class AppColors {
   static const Color white = Color(0XFFFFFFFF);
   static const Color black = Color(0XFF212121);
-  static const Color grey = Color(0XFFB7B7B7);
+  static const Color grey = Color(0XFFCDCDCD);
   static const Color lightGrey = Color(0XFF474747);
   static const Color grey40 = Color(0XFFD8D8D8);
   static const Color grey50 = Color(0XFFE8E8E8);

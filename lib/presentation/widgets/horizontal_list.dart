@@ -1,6 +1,7 @@
 import 'package:disney_plus/core/theme/app_theme.dart';
 import 'package:disney_plus/presentation/widgets/mini_card.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../domain/entities/movie_entity.dart';
 
@@ -44,7 +45,12 @@ class _HorizontalListState extends State<HorizontalList> {
             padding: const EdgeInsets.symmetric(horizontal: 18),
             itemBuilder: (context, index) {
               final movie = widget.movies[index];
-              return MiniCard(image: movie.posterPath);
+              return GestureDetector(
+                onTap: () => context.pushNamed('movie_info', pathParameters: {
+                  'movie_id': movie.id.toString(),
+                }),
+                child: MiniCard(image: movie.posterPath),
+              );
             },
           ),
         ),
