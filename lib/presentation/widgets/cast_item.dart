@@ -16,8 +16,8 @@ class CastItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 14),
-      child: Wrap(
-        crossAxisAlignment: WrapCrossAlignment.center,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(100),
@@ -34,11 +34,13 @@ class CastItem extends StatelessWidget {
             children: [
               Text(
                 name,
+                overflow: TextOverflow.ellipsis,
                 style: AppTextTheme.textTheme.bodyLarge,
               ),
               const SizedBox(height: 4),
               Text(
                 "As $character",
+                overflow: TextOverflow.ellipsis,
                 style: AppTextTheme.textTheme.bodySmall?.copyWith(
                   color: AppColors.grey,
                 ),
